@@ -16,12 +16,7 @@ Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 
-Route::get('/projects', 'ProjectsController@index');
-Route::get('/projects/create', 'ProjectsController@create');
-Route::get('/projects/{project}', 'ProjectsController@show');
-Route::post('/projects', 'ProjectsController@store');
-Route::get('/projects/{projects}/edit', 'ProjectsController@edit');
-Route::patch('/projects/{projects}', 'ProjectsController@update');
-Route::delete('/projects/{projects}', 'ProjectsController@destory');
+Route::resource('projects', 'ProjectsController');
 
-
+Route::post('/projects/{project}/tasks','ProjectTasksController@store');
+Route::patch('/tasks/{task}', 'ProjectTasksController@update');
